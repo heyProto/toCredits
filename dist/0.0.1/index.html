@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toCEEWHero</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.protograph.pykih.com/Assets/react-select.min.css">
+    <link rel="stylesheet" type="text/css" href="card.min.css">
+  </head>
+  <body style='margin: 0px'>
+    <div id="tolink-div"></div>
+    <script src="https://cdn.protograph.pykih.com/lib/protograph-core.min.js"></script>
+    <script src="card.min.js"></script>
+    <script type="text/javascript">
+    var x = new ProtoGraph.Card.toCEEWHero();
+    window.ref_link_sources_url = "https://cdn.protograph.pykih.com/Assets/ref_link_sources.json"
+    function findGetParameter(parameterName) {
+      var result = null,
+        tmp = [],
+        search_url = decodeURIComponent(location.search);
+
+      search_url
+        .substr(1)
+        .split("&")
+        .forEach(function (item) {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+      return result;
+    }
+
+    let view_cast_id = findGetParameter('view_cast_id'),
+      domain_name = (findGetParameter('domain') || ""),
+      base_url = findGetParameter('base_url') || "https://cdn.protograph.pykih.com";
+
+    var ReceiverConsumer = Oasis.Consumer.extend({
+      requests: {
+        receive: function(mode, options) {
+          if(typeof (view_cast_id) !== 'undefined'){
+            var that = this,
+              data_base_path = base_url + "/" + view_cast_id,
+              params;
+
+            document.querySelector('#tolink-div').style.minHeight = (mode == "col16") ? "430px" : "430px"
+
+            params = {
+              selector: document.querySelector('#tolink-div'),
+              data_url: data_base_path + "/data.json",
+              domain: domain_name,
+              districts: "https://cdn.protograph.pykih.com/Assets/districts.json",
+              states: "https://cdn.protograph.pykih.com/Assets/states.json",
+              onClickCallback: function () {
+                let h = x.getData().height,
+                  w = x.getData().width;
+                that.send('resize_frame', { width: w, height: h })
+              }
+            }
+            if (options && options.headerJSON) {
+              params['site_configs'] = options.headerJSON;
+            } else {
+              params['site_config_url'] = base_url + '/header.json'
+            }
+            x.init(params);
+            renderWithMode(mode);
+          }
+        }
+      },
+      events: {
+        get_size: function(){
+          var that = this;
+          var intervalId = setInterval(function(){
+            try {
+              clientRect = x.getData();
+              if(clientRect.height){
+                var height = clientRect.height,
+                  width = clientRect.width;
+                that.send("resize_frame", {height: height, width: width});
+                clearInterval(intervalId);
+              }
+            } catch (err) {}
+          }, 10)
+        },
+        change_mode: function(mode){
+          renderWithMode(mode);
+          var that = this;
+          setTimeout(function(){
+            height = x.getData().height;
+            that.send("resize_frame", {height: height});
+          })
+        }
+      }
+    });
+    oasis.connect({
+      consumers: {
+        receive: ReceiverConsumer
+      }
+    });
+
+    function renderWithMode(mode) {
+      switch(mode){
+        case 'col16':
+          x.renderSixteenCol();
+          break;
+        case 'col4':
+          x.renderFourCol();
+          break;
+        default:
+          x.renderSixteenCol();
+          break;
+      }
+    }
+
+    </script>
+  </body>
+</html>

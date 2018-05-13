@@ -1,0 +1,37 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "definitions": {},
+  "id": "http://example.com/example.json",
+  "properties": {
+    "data": {
+      "id": "/properties/data",
+      "properties": {
+        "image_url":{
+          "type":"string",
+          "title":"Background Image URL"
+        },
+        "persona":{
+          "id": "/properties/data/persona",
+          "type":"array",
+          "title":"Persona",
+          "items":{
+            "type":"string",
+            "title":"Persona Value"
+          }
+        },
+        "purpose":{
+          "id": "/properties/data/purpose",
+          "type":"array",
+          "title":"Purpose",
+          "items":{
+            "type":"string",
+            "title":"Purpose Value"
+          }
+        }
+      },
+      "title":"Card Data",
+      "type": "object"
+    }
+  },
+  "type": "object"
+}

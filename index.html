@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset = "UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toCredits</title>
+    <!-- <link rel="stylesheet" type="text/css" href="https://dwln9tzsi7g07.cloudfront.net/Assets/semantic.min.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" type="text/css" href="src/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="./lib/css/grid.css">
+    <script src="./lib/js/jquery-3.1.1.min.js"></script>
+  </head>
+  <body>
+    <div id="tolink-div"></div>
+    <script src = "dist/0.0.1/card.min.js"></script>
+    <script type="text/javascript">
+      var x = new ProtoGraph.Card.toCredits(),
+        params = {
+          selector: document.querySelector('#tolink-div'),
+          data_url: './dist/0.0.1/sample.json'
+        };
+      x.init(params);
+      // x.renderSixteenCol();
+      x.renderFourCol();
+    </script>
+  </body>
+</html>
+
