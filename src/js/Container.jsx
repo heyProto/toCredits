@@ -131,7 +131,10 @@ export default class toCreditsCard extends React.Component {
           }
 
           document.querySelector('.credits-logos').style.overflow = 'scroll';
-          document.querySelector('.credits-logos').scrollLeft = currentElement.scrollLeft;
+          $('.credits-logos').animate({
+            scrollLeft: currentElement.scrollLeft
+          }, 'fast');
+          // document.querySelector('.credits-logos').scrollLeft = currentElement.scrollLeft;
           document.querySelector('.credits-logos').style.overflow = 'hidden';
 
           if (stateOfNavbar.length === 1) {
@@ -177,7 +180,10 @@ export default class toCreditsCard extends React.Component {
             });
 
             document.querySelector('.credits-logos').style.overflow = 'scroll';
-            document.querySelector('.credits-logos').scrollLeft = newScrollLeft;
+            $('.credits-logos').animate({
+              scrollLeft: newScrollLeft
+            }, 'fast');
+            // document.querySelector('.credits-logos').scrollLeft = newScrollLeft;
             document.querySelector('.credits-logos').style.overflow = 'hidden';
 
             if (window_items[window_items.length - 1] === max) {
@@ -236,23 +242,20 @@ export default class toCreditsCard extends React.Component {
     return grouped_data;
   }
 
-  renderSixteenCol(){
+  renderCol16(){
     if(this.state.fetchingData){
       return(
         <div>Loading</div>
       )
     }else{
-      // console.log("render")
       let links_counter = 0;
       let data = this.state.dataJSON.card_data.data,
         grouped_data = this.groupBy(data.section, "title"),
         arr = [1],
         section = [];
       for (let key in grouped_data){
-        // console.log(key, "for loop")
         let names = grouped_data[key].map((d,i) =>{
           links_counter+= 1
-          // console.log(this.links_counter, "links_counter")
           return(
             <div className="credits-links" data-item={links_counter} style={{display: 'inline-block'}}>
               <a href={d.url} target="_blank">
@@ -287,7 +290,55 @@ export default class toCreditsCard extends React.Component {
     }
   }
 
-  renderFourCol(){
+  renderCol7(){
+    if(this.state.fetchingData){
+      return(
+        <div>Loading</div>
+      )
+    }else{
+      let links_counter = 0;
+      let data = this.state.dataJSON.card_data.data,
+        grouped_data = this.groupBy(data.section, "title"),
+        arr = [1],
+        section = [];
+      for (let key in grouped_data){
+        let names = grouped_data[key].map((d,i) =>{
+          links_counter+= 1
+          return(
+            <div className="credits-links" data-item={links_counter} style={{display: 'inline-block'}}>
+              <a href={d.url} target="_blank">
+                <div className="company-name">{d.name}</div>
+                <div className="company-logo"><img src={d.logo} onLoad={this.setWidth.bind(this)}/></div>
+              </a>
+            </div>
+          )
+        })
+        section = section.concat(arr.map((d,i) =>{
+          return(
+            <div className="credits-section">
+              <div className="section-title">{key}</div>
+              {names}
+            </div>
+          )
+        }))
+      }
+      return(
+        <div className="credits-card col7-credits-card">
+          <div id="prev-arrow" className="left-click-arrow proto-navigation-icons">
+            <img src="arrow-left.png"/>
+          </div>
+          <div className="credits-logos">
+            <div className="scroll-area">{section}</div>
+          </div>
+          <div id="next-arrow" className="right-click-arrow proto-navigation-icons">
+            <img src="arrow-right.png"/>
+          </div>
+        </div>
+      )
+    }
+  }
+
+  renderCol4(){
     if(this.state.fetchingData){
       return(
         <div>Loading</div>
@@ -330,9 +381,11 @@ export default class toCreditsCard extends React.Component {
   render() {    
     switch(this.props.mode) {
       case 'col16':
-        return this.renderSixteenCol();
+        return this.renderCol16();
+      case 'col7':
+        return this.renderCol7();
       case 'col4':
-        return this.renderFourCol();
+        return this.renderCol4();
     }
   }
 }

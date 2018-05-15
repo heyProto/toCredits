@@ -157,3 +157,8 @@
   right: 0px;
   background: rgba(255,255,255, 0.65);
 }
+
+.col7-credits-card{
+  width: 540px;
+  overflow-x: hidden; 
+}

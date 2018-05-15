@@ -50,10 +50,13 @@
       function renderWithMode(mode) {
         switch(mode){
           case 'col16':
-            x.renderSixteenCol();
+            x.renderCol16();
+            break;
+          case 'col7':
+            x.renderCol7();
             break;
           case 'col4':
-            x.renderFourCol();
+            x.renderCol4();
             break;
           default:
             x.renderSixteenCol();

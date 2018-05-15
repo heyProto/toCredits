@@ -4,7 +4,6 @@
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>toCEEWHero</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.protograph.pykih.com/Assets/react-select.min.css">
     <link rel="stylesheet" type="text/css" href="card.min.css">
   </head>
   <body style='margin: 0px'>
@@ -99,10 +98,13 @@
     function renderWithMode(mode) {
       switch(mode){
         case 'col16':
-          x.renderSixteenCol();
+          x.renderCol16();
+          break;
+        case 'col7':
+          x.renderCol7();
           break;
         case 'col4':
-          x.renderFourCol();
+          x.renderCol4();
           break;
         default:
           x.renderSixteenCol();

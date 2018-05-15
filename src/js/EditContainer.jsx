@@ -209,13 +209,19 @@ export default class EditCreditsCard extends React.Component {
                       data-mode='col16'
                       onClick={this.toggleMode}
                     >
-                      16c-cover
+                      col16
+                    </a>
+                    <a className={`item ${this.state.mode === 'col7' ? 'active' : ''}`}
+                      data-mode='col7'
+                      onClick={this.toggleMode}
+                    >
+                      col7
                     </a>
                     <a className={`item ${this.state.mode === 'col4' ? 'active' : ''}`}
                       data-mode='col4'
                       onClick={this.toggleMode}
                     >
-                      4col
+                      col4
                     </a>
                   </div>
                 </div>

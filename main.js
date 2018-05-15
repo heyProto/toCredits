@@ -17,12 +17,17 @@ ProtoGraph.Card.toCreditPartners.prototype.getData = function (data) {
   return this.containerInstance.exportData();
 }
 
-ProtoGraph.Card.toCreditPartners.prototype.renderSixteenCol= function (data) {
+ProtoGraph.Card.toCreditPartners.prototype.renderCol16= function (data) {
   this.mode = 'col16';
   this.render();
 }
 
-ProtoGraph.Card.toCreditPartners.prototype.renderFourCol= function (data) {
+ProtoGraph.Card.toCreditPartners.prototype.renderCol7= function (data) {
+  this.mode = 'col7';
+  this.render();
+}
+
+ProtoGraph.Card.toCreditPartners.prototype.renderCol4= function (data) {
   this.mode = 'col4';
   this.render();
 }
