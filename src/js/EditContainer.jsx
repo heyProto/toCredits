@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
-import StoryCard from './Container.jsx';
+import CreditsCard from './Container.jsx';
 import JSONSchemaForm from '../../lib/js/react-jsonschema-form';
 
-export default class EditStoryCard extends React.Component {
+export default class EditCreditsCard extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -167,18 +167,18 @@ export default class EditStoryCard extends React.Component {
         mode: "blank"
       }
     }, (() => {
-          this.setState((prevState, props) => {
-            let newMode;
-            if (mode !== prevState.mode) {
-              newMode = mode;
-            } else {
-              newMode = prevState.mode
-            }
-            return {
-              mode: newMode
-            }
-          })
-        }))
+        this.setState((prevState, props) => {
+          let newMode;
+          if (mode !== prevState.mode) {
+            newMode = mode;
+          } else {
+            newMode = prevState.mode
+          }
+          return {
+            mode: newMode
+          }
+        })
+      }))
   }
 
   render() {
@@ -226,14 +226,11 @@ export default class EditStoryCard extends React.Component {
                 </div>
                 {
                   this.state.mode == "blank" ? <div /> : <div className="protograph-app-holder">
-                    <StoryCard
+                    <CreditsCard
                       mode={this.state.mode}
                       dataJSON={this.state.dataJSON}
                       domain={this.props.domain}
                       optionalConfigJSON={this.state.optionalConfigJSON}
-                      linkDetails={this.state.refLinkDetails}
-                      districts={this.state.districts}
-                      states={this.state.states}
                     />
                   </div>
                 }

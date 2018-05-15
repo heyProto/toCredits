@@ -14,6 +14,12 @@
         "url": "https://www.icfj.org/"
       },
       {
+        "title": "Partners",
+        "name": "International Center for Journalists",
+        "logo": "icfj.png",
+        "url": "https://www.icfj.org/"
+      },
+      {
         "title": "Built by",
         "name": "Code for Kenya",
         "logo": "cfk.png",
@@ -25,7 +31,13 @@
         "logo": "knight.png",
         "url": "https://knightfoundation.org/"
       },
-       {
+      {
+        "title": "Funded by",
+        "name": "Knight Foundation",
+        "logo": "knight.png",
+        "url": "https://knightfoundation.org/"
+      },
+      {
         "title": "Funded by",
         "name": "International Center for Journalists",
         "logo": "icfj.png",

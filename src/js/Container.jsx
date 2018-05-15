@@ -29,6 +29,7 @@ export default class toCreditsCard extends React.Component {
   }
 
   componentDidMount() {
+    console.log("did mount")
     if (this.state.fetchingData){
       let items_to_fetch = [
         axios.get(this.props.dataURL)
@@ -43,6 +44,106 @@ export default class toCreditsCard extends React.Component {
         };
         this.setState(stateVar);
       }));
+    } else {
+      this.componentDidUpdate();
+    }
+  }
+
+  componentDidUpdate(){
+    let items = document.querySelectorAll('.credits-links'),
+      scroll_area = document.querySelector('.scroll-area'),
+      length = items.length,
+      width = 0;
+    if (scroll_area) {
+      for(let i = 0; i < length; i++) {
+        width += (items[i].getBoundingClientRect().width + (this.state.renderMode === "col4" ? 10 : 5));
+      }
+      scroll_area.style.width = `${width}px`;
+    }
+    if (scroll_area) {
+      var window_items = [],
+        min = 0,
+        max = items.length - 1,
+        navBar = document.querySelector('.credits-logos'),
+        navBarBBox = navBar.getBoundingClientRect(),
+        stateOfNavbar = [];
+      for (let i = 0; i < max; i++) {
+        let left = items[i].getBoundingClientRect().left,
+          width = items[i].getBoundingClientRect().width;
+
+        if ((left + width) <= navBarBBox.width) {
+          window_items.push(i);
+        }
+      }
+
+      stateOfNavbar.push({
+        window_items: window_items,
+        scrollLeft: 0
+      });
+
+      document.querySelector('#prev-arrow').addEventListener('click', (e) => {
+        let popedElement = stateOfNavbar.pop(),
+          currentElement = stateOfNavbar[stateOfNavbar.length - 1],
+          next = document.querySelector('#next-arrow');
+
+        window_items = currentElement.window_items;
+
+        if (next.style.display !== 'inline-block') {
+          next.style.display = 'inline-block';
+        }
+
+        document.querySelector('.credits-logos').style.overflow = 'scroll';
+        document.querySelector('.credits-logos').scrollLeft = currentElement.scrollLeft;
+        document.querySelector('.credits-logos').style.overflow = 'hidden';
+
+        if (stateOfNavbar.length === 1) {
+          document.querySelector('#prev-arrow').style.display = 'none';
+        }
+      });
+
+      document.querySelector('#next-arrow').addEventListener('click', (e) => {
+        let firstElement = window_items[0],
+          lastElement = window_items[window_items.length - 1],
+          new_width = 0,
+          new_window_items = [],
+          prev = document.querySelector('#prev-arrow');
+
+        if (lastElement !== max) {
+          if (prev.style.display !== 'inline-block') {
+            prev.style.display = 'inline-block';
+          }
+
+          for (let i = firstElement + 1; i <= max; i++) {
+            let element = document.querySelector(`.credits-links[data-item="${i}"]`),
+              width = element.getBoundingClientRect().width;
+
+            if ((new_width + width) <= navBarBBox.width) {
+              new_width += width;
+              new_window_items.push(i);
+            } else {
+              break;
+            }
+          }
+          window_items = new_window_items.sort((a, b) => a - b);
+
+          let nextElem = document.querySelector(`.credits-links[data-item="${window_items[0]}"]`),
+            scrollLeft = document.querySelector('.credits-logos').scrollLeft,
+            newScrollLeft = scrollLeft + nextElem.getBoundingClientRect().left;
+
+          stateOfNavbar.push({
+            window_items: window_items,
+            scrollLeft: newScrollLeft
+          });
+
+          document.querySelector('.credits-logos').style.overflow = 'scroll';
+          document.querySelector('.credits-logos').scrollLeft = newScrollLeft;
+          document.querySelector('.credits-logos').style.overflow = 'hidden';
+
+          if (window_items[window_items.length - 1] === max) {
+            document.querySelector('#next-arrow').style.display = 'none';
+          }
+        }
+      });
     }
   }
 
@@ -92,6 +193,7 @@ export default class toCreditsCard extends React.Component {
         <div>Loading</div>
       )
     }else{
+      console.log("render")
       let data = this.state.dataJSON.card_data.data,
         grouped_data = this.groupBy(data.section, "title"),
         arr = [1],
@@ -99,7 +201,7 @@ export default class toCreditsCard extends React.Component {
       for (let key in grouped_data){
         let names = grouped_data[key].map((d,i) =>{
           return(
-            <div style={{display: 'inline-block'}}>
+            <div className="credits-links" data-item={i + 1} style={{display: 'inline-block'}}>
               <a href={d.url} target="_blank">
                 <div className="company-name">{d.name}</div>
                 <div className="company-logo"><img src={d.logo}/></div>
@@ -109,7 +211,7 @@ export default class toCreditsCard extends React.Component {
         })
         section = section.concat(arr.map((d,i) =>{
           return(
-            <div className="credit-section">
+            <div className="credits-section">
               <div className="section-title">{key}</div>
               {names}
             </div>
@@ -118,8 +220,14 @@ export default class toCreditsCard extends React.Component {
       }
       return(
         <div className="credits-card">
-          <div className="credit-logos">
+          <div id="prev-arrow" className="left-click-arrow">
+            <img src="arrow-left.png"/>
+          </div>
+          <div className="credits-logos">
             <div className="scroll-area">{section}</div>
+          </div>
+          <div id="next-arrow" className="right-click-arrow">
+            <img src="arrow-right.png"/>
           </div>
         </div>
       )
@@ -165,6 +273,7 @@ export default class toCreditsCard extends React.Component {
       )
     }
   }
+  
   render() {    
     switch(this.props.mode) {
       case 'col16':
@@ -174,6 +283,3 @@ export default class toCreditsCard extends React.Component {
     }
   }
 }
-
-// <div className="fog-effect-left"></div>
-// <div className="fog-effect-right"></div>

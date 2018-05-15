@@ -5,29 +5,29 @@ import CreditCard from './src/js/Container.jsx';
 window.ProtoGraph = window.ProtoGraph || {};
 window.ProtoGraph.Card = window.ProtoGraph.Card || {};
 
-ProtoGraph.Card.toCredits = function () {
-  this.cardType = 'toCredits';
+ProtoGraph.Card.toCreditPartners = function () {
+  this.cardType = 'toCreditPartners';
 }
 
-ProtoGraph.Card.toCredits.prototype.init = function (options) {
+ProtoGraph.Card.toCreditPartners.prototype.init = function (options) {
   this.options = options;
 }
 
-ProtoGraph.Card.toCredits.prototype.getData = function (data) {
+ProtoGraph.Card.toCreditPartners.prototype.getData = function (data) {
   return this.containerInstance.exportData();
 }
 
-ProtoGraph.Card.toCredits.prototype.renderSixteenCol= function (data) {
+ProtoGraph.Card.toCreditPartners.prototype.renderSixteenCol= function (data) {
   this.mode = 'col16';
   this.render();
 }
 
-ProtoGraph.Card.toCredits.prototype.renderFourCol= function (data) {
+ProtoGraph.Card.toCreditPartners.prototype.renderFourCol= function (data) {
   this.mode = 'col4';
   this.render();
 }
 
-ProtoGraph.Card.toCredits.prototype.render = function () {
+ProtoGraph.Card.toCreditPartners.prototype.render = function () {
   ReactDOM.render(
     <CreditCard
       dataURL={this.options.data_url}
