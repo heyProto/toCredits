@@ -34,7 +34,7 @@ export default class EditCreditsCard extends React.Component {
       optionalConfigJSON: this.state.dataJSON.configs,
       optionalConfigSchemaJSON: this.state.optionalConfigSchemaJSON
     }
-    getDataObj["name"] = "CEEW Hero Cover"; // Reduces the name to ensure the slug does not get too long
+    getDataObj["name"] = "Credits card"; // Reduces the name to ensure the slug does not get too long
     return getDataObj;
   }
 
