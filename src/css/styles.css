@@ -137,28 +137,29 @@
 }
 
 .left-click-arrow{
-  /* display: inline-block; */
-  display: none;
+  display: inline-block; 
+  /*display: none;*/
   position: absolute;
-  right: 500px;
+  /*right: 500px;*/
   z-index: 100;
   padding-top: 16px;
   height: 50px;
   box-sizing: border-box;
-    width: 100px;
-    cursor: pointer;
-  background: -webkit-linear-gradient(left,#ffffff,#ffffff00); /*Safari 5.1-6*/
-  background: -o-linear-gradient(left,#ffffff,#ffffff00); /*Opera 11.1-12*/
-  background: -moz-linear-gradient(left,#ffffff,#ffffff00); /*Fx 3.6-15*/
-  background: linear-gradient(to right, #ffffff, #ffffff00); /*Standard*/
+  width: 100px;
+  cursor: pointer;
+  top: 30px;
+/*  background: -webkit-linear-gradient(left,#ffffff,#ffffff00); 
+  background: -o-linear-gradient(left,#ffffff,#ffffff00); 
+  background: -moz-linear-gradient(left,#ffffff,#ffffff00); 
+  background: linear-gradient(to right, #ffffff, #ffffff00); */
 }
 
 .right-click-arrow{
-  /* display: inline-block; */
-  display: none;
+  display: inline-block; 
+  /*display: none;*/
   position: absolute;
-  right: 0px;
-  top: 0px;
+  right: 150px;
+  top: 30px; 
   height: 50px;
   width: 100px;
   padding-top: 16px;
@@ -170,8 +171,3 @@
   background: -moz-linear-gradient(left,#ffffff00,#ffffff); /*Fx 3.6-15*/
   background: linear-gradient(to right, #ffffff00, #ffffff); /*Standard*/
 }
-
-.credits-overlay{
-
-}
-
