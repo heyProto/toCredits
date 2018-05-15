@@ -47,18 +47,13 @@ export default class EditCreditsCard extends React.Component {
         axios.get(this.props.schemaURL),
         axios.get(this.props.optionalConfigURL),
         axios.get(this.props.optionalConfigSchemaURL),
-        axios.get(this.props.uiSchemaURL),
-        axios.get(this.props.districts),
-        axios.get(this.props.states)
-      ]).then(axios.spread((card, schema, opt_config, opt_config_schema, uiSchema,districts,states) => {
-
+        axios.get(this.props.uiSchemaURL)
+      ]).then(axios.spread((card, schema, opt_config, opt_config_schema, uiSchema) => {
           let stateVar = {
             dataJSON: {
               card_data: card.data,
               configs: opt_config.data
             },
-            districts: districts.data,
-            states: states.data,
             schemaJSON: schema.data,
             uiSchemaJSON: uiSchema.data,
             optionalConfigJSON: opt_config.data,

@@ -9,6 +9,12 @@
       },
       {
         "title": "Partners",
+        "name": "Knight Foundation",
+        "logo": "knight.png",
+        "url": "https://knightfoundation.org/"
+      },
+      {
+        "title": "Partners",
         "name": "International Center for Journalists",
         "logo": "icfj.png",
         "url": "https://www.icfj.org/"
@@ -24,6 +30,18 @@
         "name": "Code for Kenya",
         "logo": "cfk.png",
         "url": "https://codeforkenya.org/"
+      },
+      {
+        "title": "Built by",
+        "name": "Code for Kenya",
+        "logo": "cfk.png",
+        "url": "https://codeforkenya.org/"
+      },
+      {
+        "title": "Built by",
+        "name": "International Center for Journalists",
+        "logo": "icfj.png",
+        "url": "https://www.icfj.org/"
       },
       {
         "title": "Funded by",
