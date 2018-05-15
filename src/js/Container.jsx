@@ -65,7 +65,8 @@ export default class toCreditsCard extends React.Component {
         }
         scroll_area.style.width = `${width + section_length * 30}px`;
       }
-
+      console.log(scroll_area);
+      
       if (scroll_area){
         let window_items = [],
           min = 0,
@@ -79,7 +80,8 @@ export default class toCreditsCard extends React.Component {
         for (let i = 0; i < max; i++) {
           let left = items[i].getBoundingClientRect().left,
             width = items[i].getBoundingClientRect().width;
-
+          console.log(left, width, navBarBBox);
+          
           if ((left + width) <= navBarBBox.width) {
             window_items.push(i);
           }
@@ -89,11 +91,14 @@ export default class toCreditsCard extends React.Component {
           window_items: window_items,
           scrollLeft: 0
         });
-
-        console.log(stateOfNavbar, "stateOfNavbar")
+        this.setState({
+          navState: stateOfNavbar
+        })
         document.querySelector('#prev-arrow').addEventListener('click', (e) => {
-          console.log("hey prev", stateOfNavbar)
-          let popedElement = stateOfNavbar.pop(),
+          let stateOfNavbar = this.state.navState;
+          console.log("hey prev", JSON.stringify(stateOfNavbar))
+
+          let popedElement = stateOfNavbar,
             currentElement = stateOfNavbar[stateOfNavbar.length - 1],
             next = document.querySelector('#next-arrow');
 
@@ -112,6 +117,9 @@ export default class toCreditsCard extends React.Component {
           if (stateOfNavbar.length === 1) {
             document.querySelector('#prev-arrow').style.display = 'none';
           }
+          this.setState({
+            navState: stateOfNavbar
+          })
         });
 
         document.querySelector('#next-arrow').addEventListener('click', (e) => {
@@ -125,12 +133,14 @@ export default class toCreditsCard extends React.Component {
             if (prev.style.display !== 'inline-block') {
               prev.style.display = 'inline-block';
             }
-
+            console.log(max);
+            
             for (let i = firstElement; i < max; i++) {
               console.log(document.querySelector(`.credits-links[data-item="${i}"]`))
               let element = document.querySelector(`.credits-links[data-item="${i}"]`),
                 width = element.getBoundingClientRect().width;
-
+              console.log(element,'....');
+              
               if ((new_width + width) <= navBarBBox.width) {
                 new_width += width;
                 new_window_items.push(i);
