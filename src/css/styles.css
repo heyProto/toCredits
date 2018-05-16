@@ -104,12 +104,14 @@
 
 .credits-card-mobile .credits-section .credits-title{
   text-transform: uppercase;
-  font-size: 12px;
   font-family: "cabin";
   color: #333;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
   display: block;
+  font-size: 10px;
+  opacity: 0.5;
+  margin-top: 24px;
 }
 
 .credits-card-mobile .company-logo{
@@ -131,11 +133,6 @@
   display: none;
 }
 
-.credits-card-mobile .credits-section .section-title{
-  font-size: 10px;
-  opacity: 0.5;
-  margin-top: 24px;
-}
 .proto-navigation-icons {
   display: none;
   position: absolute;
