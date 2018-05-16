@@ -41,13 +41,14 @@
   overflow: hidden;
 }
 
-.credits-card .credits-section .section-title{
+.credits-card .credits-section .credits-title{
   text-transform: uppercase;
   font-size: 12px;
   font-family: "cabin";
   color: #333;
   letter-spacing: 0.5px;
   margin-bottom: 8px;
+  display: block;
 }
 
 .credits-card .company-logo{

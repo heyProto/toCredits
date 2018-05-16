@@ -268,7 +268,7 @@ export default class toCreditsCard extends React.Component {
         section = section.concat(arr.map((d,i) =>{
           return(
             <div className="credits-section">
-              <div className="section-title">{key}</div>
+              <div className="credits-title">{key}</div>
               {names}
             </div>
           )
@@ -277,13 +277,13 @@ export default class toCreditsCard extends React.Component {
       return(
         <div className="credits-card">
           <div id="prev-arrow" className="left-click-arrow proto-navigation-icons">
-            <img src="arrow-left.png"/>
+            <img src="https://cdn.protograph.pykih.com/d583b2ea191031c6f0fc/img/arrow-left.png"/>
           </div>
           <div className="credits-logos">
             <div className="scroll-area">{section}</div>
           </div>
           <div id="next-arrow" className="right-click-arrow proto-navigation-icons">
-            <img src="arrow-right.png"/>
+            <img src="https://cdn.protograph.pykih.com/d583b2ea191031c6f0fc/img/arrow-right.png"/>
           </div>
         </div>
       )
@@ -316,7 +316,7 @@ export default class toCreditsCard extends React.Component {
         section = section.concat(arr.map((d,i) =>{
           return(
             <div className="credits-section">
-              <div className="section-title">{key}</div>
+              <div className="credits-title">{key}</div>
               {names}
             </div>
           )
