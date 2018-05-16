@@ -83,7 +83,7 @@ export default class toCreditsCard extends React.Component {
           if ((firstElementBBox.left !== navBarBBox.left)) {
             arrows.push('.left-click-arrow');
           }
-          if (lastElementBBox.left > (navBarBBox.left + navBarBBox.width)) {
+          if ((lastElementBBox.left + lastElementBBox.width) > (navBarBBox.left + navBarBBox.width)) {
             arrows.push('.right-click-arrow');
           }
           console.log(arrows, "Arrows")
