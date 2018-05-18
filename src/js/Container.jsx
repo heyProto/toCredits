@@ -70,8 +70,6 @@ export default class toCreditsCard extends React.Component {
         scroll_area.style.width = `${width + section_length * 30}px`;
 
         let w = width + section_length * 30;
-        
-        console.log(w, navBarBBox.width, "width")
 
         if (w > navBarBBox.width) {
           var firstElement = document.querySelector('.credits-links[data-item="1"]'),
@@ -86,12 +84,13 @@ export default class toCreditsCard extends React.Component {
           if ((lastElementBBox.left + lastElementBBox.width) > (navBarBBox.left + navBarBBox.width)) {
             arrows.push('.right-click-arrow');
           }
-          console.log(arrows, "Arrows")
           arrows.forEach(e => {
             document.querySelector(e).style.display = 'inline-block'
           })
         }
       }
+
+      console.log(scroll_area, "scroll_area")
       
       if (scroll_area){
         let window_items = [],
@@ -110,7 +109,7 @@ export default class toCreditsCard extends React.Component {
             window_items.push(i+1);
           }
         }
-
+        console.log(window_items, "window_items")
         stateOfNavbar.push({
           window_items: window_items,
           scrollLeft: 0
@@ -149,29 +148,34 @@ export default class toCreditsCard extends React.Component {
             new_window_items = [],
             prev = document.querySelector('#prev-arrow');
 
+          console.log(lastElement, max, "lastElement max", window_items)
+
           if (lastElement !== max) {
             if (prev.style.display !== 'inline-block') {
               prev.style.display = 'inline-block';
             }
-            // console.log(max, firstElement);
             
             for (let i = firstElement+1; i <= max; i++) {
               let element = document.querySelector(`.credits-links[data-item="${i}"]`);
-              // console.log(element,'....');
               let width = element.getBoundingClientRect().width;
-                            
+              
+              console.log(new_width, width, navBarBBox.width, "widths in next")             
               if ((new_width + width) <= navBarBBox.width) {
+                console.log("ifff")
                 new_width += width;
                 new_window_items.push(i);
               } else {
                 break;
               }
             }
-            console.log(new_window_items, "new_window_items")
             window_items = new_window_items.sort((a, b) => a - b);
 
-            let nextElem = document.querySelector(`.credits-links[data-item="${window_items[0]}"]`),
-              scrollLeft = document.querySelector('.credits-logos').scrollLeft,
+            console.log(window_items, "window_items", new_window_items)
+
+
+            let nextElem = document.querySelector(`.credits-links[data-item="${window_items[0]}"]`)
+            console.log(nextElem, "nextElem", `.credits-links[data-item="${window_items[0]}"]`)
+            let scrollLeft = document.querySelector('.credits-logos').scrollLeft,
               newScrollLeft = scrollLeft + nextElem.getBoundingClientRect().left;
 
             stateOfNavbar.push({

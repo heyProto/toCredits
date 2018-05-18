@@ -3,15 +3,14 @@
   <head>
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toCEEWHero</title>
-    <link rel="stylesheet" type="text/css" href="https://cdn.protograph.pykih.com/Assets/react-select.min.css">
+    <title>toCreditPartners</title>
     <link rel="stylesheet" type="text/css" href="card.min.css">
   </head>
   <body>
     <div id="article-div"></div></br>
     <script src="card.min.js"></script>
     <script type="text/javascript">
-      var x = new ProtoGraph.Card.toCEEWHero();
+      var x = new ProtoGraph.Card.toCreditPartners();
       window.ref_link_sources_url = "https://cdn.protograph.pykih.com/Assets/ref_link_sources.json"
       function findGetParameter(parameterName) {
           var result = null,
@@ -40,8 +39,6 @@
           selector: document.querySelector('#article-div'),
           data_url: data_base_path + "/data.json",
           domain: domain_name,
-          districts: "https://cdn.protograph.pykih.com/Assets/districts.json",
-          states: "https://cdn.protograph.pykih.com/Assets/states.json",
           site_config_url: base_url + '/header.json'
         })
         renderWithMode(mode);

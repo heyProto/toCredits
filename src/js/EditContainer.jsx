@@ -39,8 +39,6 @@ export default class EditCreditsCard extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
-
     if (typeof this.props.dataURL === "string"){
       axios.all([
         axios.get(this.props.dataURL),

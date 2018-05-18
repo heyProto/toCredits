@@ -3,7 +3,7 @@
   <head>
     <meta charset = "UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>toCEEWHero</title>
+    <title>toCreditPartners</title>
     <link rel="stylesheet" type="text/css" href="card.min.css">
   </head>
   <body style='margin: 0px'>
@@ -11,7 +11,7 @@
     <script src="https://cdn.protograph.pykih.com/lib/protograph-core.min.js"></script>
     <script src="card.min.js"></script>
     <script type="text/javascript">
-    var x = new ProtoGraph.Card.toCEEWHero();
+    var x = new ProtoGraph.Card.toCreditPartners();
     window.ref_link_sources_url = "https://cdn.protograph.pykih.com/Assets/ref_link_sources.json"
     function findGetParameter(parameterName) {
       var result = null,
@@ -46,8 +46,6 @@
               selector: document.querySelector('#tolink-div'),
               data_url: data_base_path + "/data.json",
               domain: domain_name,
-              districts: "https://cdn.protograph.pykih.com/Assets/districts.json",
-              states: "https://cdn.protograph.pykih.com/Assets/states.json",
               onClickCallback: function () {
                 let h = x.getData().height,
                   w = x.getData().width;
