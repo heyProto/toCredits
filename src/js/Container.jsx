@@ -55,7 +55,7 @@ export default class toCreditsCard extends React.Component {
     if (this.state.image_count === this.state.dataJSON.card_data.data.section.length){
       let items = document.querySelectorAll('.credits-links'),
         scroll_area = document.querySelector('.scroll-area'),
-        section = document.querySelectorAll('.credits-section'),
+        section = document.querySelectorAll('.credits-title'),
         section_length = section.length,
         length = items.length,
         width = 0;
@@ -63,13 +63,13 @@ export default class toCreditsCard extends React.Component {
       if (scroll_area) {
         let navBar = document.querySelector('.credits-logos'),
           navBarBBox = navBar.getBoundingClientRect();
-        for(let i = 0; i < length; i++) {
-          // console.log(i, items[i], "for")
-          width += (items[i].getBoundingClientRect().width + (this.state.renderMode === "col4" ? 10 : 5));
+        for(let i = 0; i < section_length; i++) {
+          width += (section[i].getBoundingClientRect().width + (this.state.renderMode === "col4" ? 10 : 5));
         }
+        console.log(width, section_length * 30, width+(section_length * 30) ,"section")
         scroll_area.style.width = `${width + section_length * 30}px`;
 
-        let w = width + section_length * 30;
+        let w = width + (section_length * 30);
 
         if (w > navBarBBox.width) {
           var firstElement = document.querySelector('.credits-links[data-item="1"]'),
