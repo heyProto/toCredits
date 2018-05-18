@@ -1,25 +1,26 @@
 @import url('https://fonts.googleapis.com/css?family=Bitter|Cabin');
 
 .credits-card{
-  height: 160px;
+  height: 130px;
   width: 100%;
   display: inline-block;
   /*max-width: 1260px; */
   /*overflow-x: scroll; */
   position: relative;
+  border-top: 1px solid #efefef;
 }
 
 .credits-card .credits-logos{
   display: inline-block;
   /* width: 1260px; */
   box-sizing: border-box;
-  min-height: 160px;
+  min-height: 130px;
   position: relative;
   /*overflow-x: scroll; */
   width: 100%;
   max-width: 100%;
-  height: 160px;
-  padding-top: 35px; 
+  height: 130px;
+  padding-top: 20px;
 }
 
 .credits-card .credits-section{
@@ -159,5 +160,5 @@
 
 .col7-credits-card{
   width: 540px;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
