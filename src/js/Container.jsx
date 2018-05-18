@@ -64,11 +64,14 @@ export default class toCreditsCard extends React.Component {
         let navBar = document.querySelector('.credits-logos'),
           navBarBBox = navBar.getBoundingClientRect();
         for(let i = 0; i < section_length; i++) {
+          console.log(section[i].getBoundingClientRect(), section[i].getBoundingClientRect().width, "for")
           width += (section[i].getBoundingClientRect().width + (this.state.renderMode === "col4" ? 10 : 5));
         }
         console.log(width, section_length * 30, width+(section_length * 30) ,"section")
         scroll_area.style.width = `${width + section_length * 30}px`;
-
+        if (this.props.mode === 'col7'){
+          document.querySelector('.col7-credits-card').style.width = "540px";
+        }
         let w = width + (section_length * 30);
 
         if (w > navBarBBox.width) {
