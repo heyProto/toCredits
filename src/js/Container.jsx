@@ -52,7 +52,7 @@ export default class toCreditsCard extends React.Component {
 
   setWidth(){
     // console.log(this.state.image_count, this.state.dataJSON.card_data.data.section.length)
-    if (this.state.image_count === this.state.dataJSON.card_data.data.section.length){
+    if (this.state.image_count === this.state.dataJSON.card_data.data.partners.length){
       let items = document.querySelectorAll('.credits-links'),
         scroll_area = document.querySelector('.scroll-area'),
         section = document.querySelectorAll('.credits-title'),
@@ -69,11 +69,13 @@ export default class toCreditsCard extends React.Component {
         }
         console.log(width, section_length * 30, width+(section_length * 30) ,"section")
         scroll_area.style.width = `${width + section_length * 30}px`;
+
         if (this.props.mode === 'col7'){
           document.querySelector('.col7-credits-card').style.width = "540px";
         }
+        
         let w = width + (section_length * 30);
-
+        console.log(w, navBarBBox)
         if (w > navBarBBox.width) {
           var firstElement = document.querySelector('.credits-links[data-item="1"]'),
             lastElement = document.querySelector(`.credits-links[data-item="${length}"]`),
@@ -81,6 +83,7 @@ export default class toCreditsCard extends React.Component {
             lastElementBBox = lastElement.getBoundingClientRect(),
             arrows = [];
 
+          console.log(firstElementBBox, navBarBBox)
           if ((firstElementBBox.left !== navBarBBox.left)) {
             arrows.push('.left-click-arrow');
           }
@@ -151,8 +154,6 @@ export default class toCreditsCard extends React.Component {
             new_window_items = [],
             prev = document.querySelector('#prev-arrow');
 
-          console.log(lastElement, max, "lastElement max", window_items)
-
           if (lastElement !== max) {
             if (prev.style.display !== 'inline-block') {
               prev.style.display = 'inline-block';
@@ -164,7 +165,6 @@ export default class toCreditsCard extends React.Component {
               
               console.log(new_width, width, navBarBBox.width, "widths in next")             
               if ((new_width + width) <= navBarBBox.width) {
-                console.log("ifff")
                 new_width += width;
                 new_window_items.push(i);
               } else {
@@ -172,9 +172,6 @@ export default class toCreditsCard extends React.Component {
               }
             }
             window_items = new_window_items.sort((a, b) => a - b);
-
-            console.log(window_items, "window_items", new_window_items)
-
 
             let nextElem = document.querySelector(`.credits-links[data-item="${window_items[0]}"]`)
             console.log(nextElem, "nextElem", `.credits-links[data-item="${window_items[0]}"]`)
@@ -257,7 +254,7 @@ export default class toCreditsCard extends React.Component {
     }else{
       let links_counter = 0;
       let data = this.state.dataJSON.card_data.data,
-        grouped_data = this.groupBy(data.section, "title"),
+        grouped_data = this.groupBy(data.partners, "title"),
         arr = [1],
         section = [];
       for (let key in grouped_data){
@@ -305,7 +302,7 @@ export default class toCreditsCard extends React.Component {
     }else{
       let links_counter = 0;
       let data = this.state.dataJSON.card_data.data,
-        grouped_data = this.groupBy(data.section, "title"),
+        grouped_data = this.groupBy(data.partners, "title"),
         arr = [1],
         section = [];
       for (let key in grouped_data){
@@ -352,7 +349,7 @@ export default class toCreditsCard extends React.Component {
       )
     }else{
       let data = this.state.dataJSON.card_data.data,
-        grouped_data = this.groupBy(data.section, "title"),
+        grouped_data = this.groupBy(data.partners, "title"),
         arr = [1],
         section = [];
       for (let key in grouped_data){

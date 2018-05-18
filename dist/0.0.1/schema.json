@@ -10,8 +10,13 @@
       "properties": {
         "section": {
           "id": "/properties/data/properties/section",
+          "type": "string",
+          "title": "Section"
+        },
+        "partners": {
+          "id": "/properties/data/properties/partners",
           "type": "array",
-          "title": "Section",
+          "title": "Partners",
           "hideTitle": true,
           "separator":"#",
           "items": {

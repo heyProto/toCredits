@@ -1,65 +1,36 @@
 {
   "data":{
-    "section":[
+    "section": "Credits",
+    "partners":[
       {
-        "title": "Partners",
+        "title": "Initiative By",
         "name": "Knight Foundation",
-        "logo": "knight.png",
+        "logo": "https://data.responsiblebiz.org/Assets/oxfam.png",
         "url": "https://knightfoundation.org/"
       },
       {
-        "title": "Partners",
+        "title": "Technical Partners",
         "name": "Knight Foundation",
-        "logo": "knight.png",
+        "logo": "https://data.responsiblebiz.org/Assets/praxis.jpg",
         "url": "https://knightfoundation.org/"
       },
       {
-        "title": "Partners",
+        "title": "Technical Partners",
         "name": "International Center for Journalists",
-        "logo": "icfj.png",
+        "logo": "https://data.responsiblebiz.org/Assets/pic.jpg",
         "url": "https://www.icfj.org/"
       },
       {
-        "title": "Partners",
+        "title": "Knowledge Partners",
         "name": "International Center for Journalists",
-        "logo": "icfj.png",
+        "logo": "https://data.responsiblebiz.org/Assets/crw.jpg",
         "url": "https://www.icfj.org/"
       },
       {
-        "title": "Built by",
+        "title": "Data Visualisation Partners",
         "name": "Code for Kenya",
-        "logo": "cfk.png",
+        "logo": "https://data.responsiblebiz.org/Assets/pykih.png",
         "url": "https://codeforkenya.org/"
-      },
-      {
-        "title": "Built by",
-        "name": "Code for Kenya",
-        "logo": "cfk.png",
-        "url": "https://codeforkenya.org/"
-      },
-      {
-        "title": "Built by",
-        "name": "International Center for Journalists",
-        "logo": "icfj.png",
-        "url": "https://www.icfj.org/"
-      },
-      {
-        "title": "Funded by",
-        "name": "Knight Foundation",
-        "logo": "knight.png",
-        "url": "https://knightfoundation.org/"
-      },
-      {
-        "title": "Funded by",
-        "name": "Knight Foundation",
-        "logo": "knight.png",
-        "url": "https://knightfoundation.org/"
-      },
-      {
-        "title": "Funded by",
-        "name": "International Center for Journalists",
-        "logo": "icfj.png",
-        "url": "https://www.icfj.org/"
       }
     ]
   }
