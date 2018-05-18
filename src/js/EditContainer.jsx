@@ -178,6 +178,7 @@ export default class EditCreditsCard extends React.Component {
     if (this.state.schemaJSON === undefined) {
       return(<div>Loading</div>)
     } else {
+      console.log(this.state.dataJSON, "DATA")
       return (
         <div className="proto-container">
           <div className="ui grid form-layout">
@@ -186,7 +187,7 @@ export default class EditCreditsCard extends React.Component {
                 <div>
                   <div className="section-title-text">Fill the form</div>
                   <div className="ui label proto-pull-right">
-                    toCEEWHero
+                    toCreditPartners
                   </div>
                 </div>
                 <JSONSchemaForm

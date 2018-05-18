@@ -221,6 +221,7 @@ export default class toCreditsCard extends React.Component {
   groupBy(data, column) {
     let grouped_data = {},
       key;
+    console.log(data, "group by data")
     switch (typeof column) {
       case "string":
         data.forEach(datum => {
