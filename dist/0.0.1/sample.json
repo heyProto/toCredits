@@ -1,36 +1,24 @@
-{
-  "data":{
+
+{"data": 
+  {
     "section": "Credits",
-    "partners":[
+    "partners": [
       {
-        "title": "Initiative By",
-        "name": "Knight Foundation",
-        "logo": "https://data.responsiblebiz.org/Assets/oxfam.png",
-        "url": "https://knightfoundation.org/"
-      },
+        "title": "Built by", 
+        "name": "Code for Tanzania", 
+        "logo": "https://p.codefortanzania.org/Assets/Code4Tanzania.png", 
+        "url": "https://codefortanzania.org/"
+      }, 
       {
-        "title": "Technical Partners",
-        "name": "Knight Foundation",
-        "logo": "https://data.responsiblebiz.org/Assets/praxis.jpg",
-        "url": "https://knightfoundation.org/"
-      },
+        "title": "Built by", 
+        "name": "Data Zetu", 
+        "logo": "https://p.codefortanzania.org/Assets/cropped-dz-logo-2-1.png", 
+        "url": "https://datazetu.or.tz/"
+      }, 
       {
-        "title": "Technical Partners",
-        "name": "International Center for Journalists",
-        "logo": "https://data.responsiblebiz.org/Assets/pic.jpg",
-        "url": "https://www.icfj.org/"
-      },
-      {
-        "title": "Knowledge Partners",
-        "name": "International Center for Journalists",
-        "logo": "https://data.responsiblebiz.org/Assets/crw.jpg",
-        "url": "https://www.icfj.org/"
-      },
-      {
-        "title": "Data Visualisation Partners",
-        "name": "Code for Kenya",
-        "logo": "https://data.responsiblebiz.org/Assets/pykih.png",
-        "url": "https://codeforkenya.org/"
+        "title": "Media partner", 
+        "name": "Mbeya Highlands FM Radio", 
+        "logo": "https://p.codefortanzania.org/Assets/2018-05-04-PHOTO-00000568.jpg"
       }
     ]
   }

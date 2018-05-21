@@ -7,7 +7,7 @@
   /*max-width: 1260px; */
   /*overflow-x: scroll; */
   position: relative;
-  border-top: 1px solid #efefef;
+  /*border-top: 1px solid #efefef;*/
 }
 
 .credits-card .credits-logos{
@@ -40,6 +40,8 @@
   /*width: 1600px;
   display: inline-block;*/
   overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .credits-card .credits-section .credits-title{
