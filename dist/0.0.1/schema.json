@@ -50,9 +50,10 @@
           }
         },
         "description": {
-          "id": "/properties/data/properties/description",
           "type": "string",
-          "title": "Description"
+          "title": "Description",
+          "minLength": 0,
+          "maxLength": 200
         }
       }
     }
