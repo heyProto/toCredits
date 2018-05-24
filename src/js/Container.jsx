@@ -64,10 +64,10 @@ export default class toCreditsCard extends React.Component {
         let navBar = document.querySelector('.credits-logos'),
           navBarBBox = navBar.getBoundingClientRect();
         for(let i = 0; i < section_length; i++) {
-          console.log(section[i].getBoundingClientRect(), section[i].getBoundingClientRect().width, "for")
+          // console.log(section[i].getBoundingClientRect(), section[i].getBoundingClientRect().width, "for")
           width += (section[i].getBoundingClientRect().width + (this.state.renderMode === "col4" ? 10 : 5));
         }
-        console.log(width, section_length * 30, width+(section_length * 30) ,"section")
+        // console.log(width, section_length * 30, width+(section_length * 30) ,"section")
         scroll_area.style.width = `${width + section_length * 30}px`;
 
         if (this.props.mode === 'col7'){
@@ -75,7 +75,7 @@ export default class toCreditsCard extends React.Component {
         }
         
         let w = width + (section_length * 30);
-        console.log(w, navBarBBox)
+        // console.log(w, navBarBBox)
         if (w > navBarBBox.width) {
           var firstElement = document.querySelector('.credits-links[data-item="1"]'),
             lastElement = document.querySelector(`.credits-links[data-item="${length}"]`),
@@ -83,7 +83,7 @@ export default class toCreditsCard extends React.Component {
             lastElementBBox = lastElement.getBoundingClientRect(),
             arrows = [];
 
-          console.log(firstElementBBox, navBarBBox)
+          // console.log(firstElementBBox, navBarBBox)
           if ((firstElementBBox.left !== navBarBBox.left)) {
             arrows.push('.left-click-arrow');
           }
@@ -95,8 +95,6 @@ export default class toCreditsCard extends React.Component {
           })
         }
       }
-
-      console.log(scroll_area, "scroll_area")
       
       if (scroll_area){
         let window_items = [],
@@ -115,7 +113,7 @@ export default class toCreditsCard extends React.Component {
             window_items.push(i+1);
           }
         }
-        console.log(window_items, "window_items")
+       
         stateOfNavbar.push({
           window_items: window_items,
           scrollLeft: 0
@@ -128,8 +126,6 @@ export default class toCreditsCard extends React.Component {
             next = document.querySelector('#next-arrow');
           
           window_items = currentElement.window_items;
-
-          console.log(window_items,"window_items")
 
           if (next.style.display !== 'inline-block') {
             next.style.display = 'inline-block';
@@ -162,8 +158,7 @@ export default class toCreditsCard extends React.Component {
             for (let i = firstElement+1; i <= max; i++) {
               let element = document.querySelector(`.credits-links[data-item="${i}"]`);
               let width = element.getBoundingClientRect().width;
-              
-              console.log(new_width, width, navBarBBox.width, "widths in next")             
+                           
               if ((new_width + width) <= navBarBBox.width) {
                 new_width += width;
                 new_window_items.push(i);
@@ -174,7 +169,7 @@ export default class toCreditsCard extends React.Component {
             window_items = new_window_items.sort((a, b) => a - b);
 
             let nextElem = document.querySelector(`.credits-links[data-item="${window_items[0]}"]`)
-            console.log(nextElem, "nextElem", `.credits-links[data-item="${window_items[0]}"]`)
+           
             let scrollLeft = document.querySelector('.credits-logos').scrollLeft,
               newScrollLeft = scrollLeft + nextElem.getBoundingClientRect().left;
 
@@ -221,7 +216,6 @@ export default class toCreditsCard extends React.Component {
   groupBy(data, column) {
     let grouped_data = {},
       key;
-    console.log(data, "group by data")
     switch (typeof column) {
       case "string":
         data.forEach(datum => {
@@ -287,6 +281,7 @@ export default class toCreditsCard extends React.Component {
           <div className="credits-logos">
             <div className="scroll-area">{section}</div>
           </div>
+          {(data.description !== undefined && data.description !== '') ?  <div className="para-description">{data.description}</div> :''}
           <div id="next-arrow" className="right-click-arrow proto-navigation-icons">
             <img src="https://cdn.protograph.pykih.com/d583b2ea191031c6f0fc/img/arrow-right.png"/>
           </div>
@@ -335,6 +330,7 @@ export default class toCreditsCard extends React.Component {
           <div className="credits-logos">
             <div className="scroll-area">{section}</div>
           </div>
+          {(data.description !== undefined && data.description !== '') ?  <div className="para-description">{data.description}</div> :''}
           <div id="next-arrow" className="right-click-arrow proto-navigation-icons">
             <img src="https://cdn.protograph.pykih.com/d583b2ea191031c6f0fc/img/arrow-right.png"/>
           </div>
@@ -357,7 +353,7 @@ export default class toCreditsCard extends React.Component {
         let names = grouped_data[key].map((d,i) =>{
           return(
             <div>
-              <a href={d.url} target="_blank">
+              <a href={d.url} target="_blank" className="credits-urls">
                 <div className="company-name">{d.name}</div>
                 <div className="company-logo"><img src={d.logo}/></div>
               </a>
@@ -378,6 +374,7 @@ export default class toCreditsCard extends React.Component {
           <div className="credit-logos">
             <div className="scroll-area">{section}</div>
           </div>
+          {(data.description !== undefined && data.description !== '') ?  <div className="para-description">{data.description}</div> :''}
         </div>
       )
     }

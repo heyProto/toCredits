@@ -48,6 +48,11 @@
               }
             }
           }
+        },
+        "description": {
+          "id": "/properties/data/properties/description",
+          "type": "string",
+          "title": "Description"
         }
       }
     }

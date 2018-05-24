@@ -65,6 +65,17 @@
   margin-top: 8px;
 }
 
+.credits-card .para-description{
+  max-width: 780px;
+  color: #888;
+  font-size: 12px;
+  text-align: center;
+  font-family: cabin;   
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 18px;
+}
+
 .credits-card .fog-effect-left{
   height: 160px;
   position: absolute;
@@ -137,6 +148,20 @@
   display: none;
 }
 
+.credits-card-mobile .para-description{
+  max-width: 300px;
+  color: #888;
+  font-size: 12px;
+  text-align: center;
+  font-family: cabin;   
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 18px;
+  margin-top: 20px;
+}
+
 .proto-navigation-icons {
   display: none;
   position: absolute;
@@ -160,7 +185,10 @@
   background: rgba(255,255,255, 0.65);
 }
 
-.col7-credits-card{
-  /*width: 540px;*/
-  overflow-x: hidden;
+.col7-credits-card .para-description{
+  max-width: 540px;
+}
+
+.credits-urls{
+  text-decoration-color: black;
 }
