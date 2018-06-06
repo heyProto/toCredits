@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset = "UTF-8">
+
+<head>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>toCreditPartners</title>
     <link rel="stylesheet" type="text/css" href="lib/css/bootstrap.min.css">
@@ -10,8 +11,9 @@
     <link rel="stylesheet" type="text/css" href="./lib/css/calendar.min.css">
     <link rel="stylesheet" type="text/css" href="./src/css/edit-form.css">
     <link rel="stylesheet" type="text/css" href="./lib/css/grid.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <div id="link-div"></div>
     <script src="http://cdn.bootcss.com/react/15.4.1/react.js"></script>
     <script src="http://cdn.bootcss.com/react/15.4.1/react-dom.js"></script>
@@ -19,20 +21,22 @@
     <script src="./lib/js/react-jsonschema-form.js"></script>
     <script src="./lib/js/jquery-3.1.1.min.js"></script>
     <script src="./lib/js/semantic.min.js"></script>
-    <script src = "./lib/js/calendar.min.js"></script>
-    <script src = "./dist/0.0.1/edit-card.min.js"></script>
+    <script src="./lib/js/calendar.min.js"></script>
+    <script src="./dist/0.0.1/edit-card.min.js"></script>
     <script type="text/javascript">
-    var x = new ProtoGraph.Card.toCreditPartners()
-    x.init({
-      selector: document.querySelector('#link-div'),
-      data_url: './dist/0.0.1/sample.json',
-      schema_url: './dist/0.0.1/schema.json',
-      ui_schema_url:'./dist/0.0.1/ui_schema.json',
-      configuration_url: './dist/0.0.1/configuration_sample.json', //will come from local folder
-      configuration_schema_url: './dist/0.0.1/configuration_schema.json' //will come from local folder
-    });
-    // x.renderScreenshot();
-    x.renderEdit();
+        var x = new ProtoGraph.Card.toCreditPartners()
+        x.init({
+            selector: document.querySelector('#link-div'),
+            data_url: './dist/0.0.1/sample.json',
+            schema_url: './dist/0.0.1/schema.json',
+            ui_schema_url: './dist/0.0.1/ui_schema.json',
+            site_config_url: './dist/0.0.1/site.json',
+            configuration_url: './dist/0.0.1/configuration_sample.json', //will come from local folder
+            configuration_schema_url: './dist/0.0.1/configuration_schema.json' //will come from local folder
+        });
+        // x.renderScreenshot();
+        x.renderEdit();
     </script>
-  </body>
+</body>
+
 </html>

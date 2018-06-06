@@ -1,6 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import axios from 'axios';
+import { render } from 'react-dom';
+import { all as axiosAll, get as axiosGet, spread as axiosSpread } from 'axios';
 import CreditsCard from './Container.jsx';
 import JSONSchemaForm from '../../lib/js/react-jsonschema-form';
 
@@ -18,8 +18,6 @@ export default class EditCreditsCard extends React.Component {
       publishing: false,
       uiSchemaJSON: {},
       schemaJSON: undefined,
-      optionalConfigJSON: {},
-      optionalConfigSchemaJSON: undefined
     }
     this.toggleMode = this.toggleMode.bind(this);
   }
@@ -31,8 +29,6 @@ export default class EditCreditsCard extends React.Component {
       dataJSON: data.card_data,
       schemaJSON: this.state.schemaJSON,
       uiSchemaJSON: this.state.uiSchemaJSON,
-      optionalConfigJSON: this.state.dataJSON.configs,
-      optionalConfigSchemaJSON: this.state.optionalConfigSchemaJSON
     }
     getDataObj["name"] = "Credits card"; // Reduces the name to ensure the slug does not get too long
     return getDataObj;
@@ -40,13 +36,12 @@ export default class EditCreditsCard extends React.Component {
 
   componentDidMount() {
     if (typeof this.props.dataURL === "string"){
-      axios.all([
-        axios.get(this.props.dataURL),
-        axios.get(this.props.schemaURL),
-        axios.get(this.props.optionalConfigURL),
-        axios.get(this.props.optionalConfigSchemaURL),
-        axios.get(this.props.uiSchemaURL)
-      ]).then(axios.spread((card, schema, opt_config, opt_config_schema, uiSchema) => {
+      axiosAll([
+        axiosGet(this.props.dataURL),
+        axiosGet(this.props.schemaURL),
+        axiosGet(this.props.siteConfigURL),
+        axiosGet(this.props.uiSchemaURL)
+      ]).then(axiosSpread((card, schema, site_config, uiSchema) => {
           let stateVar = {
             dataJSON: {
               card_data: card.data,
@@ -54,8 +49,7 @@ export default class EditCreditsCard extends React.Component {
             },
             schemaJSON: schema.data,
             uiSchemaJSON: uiSchema.data,
-            optionalConfigJSON: opt_config.data,
-            optionalConfigSchemaJSON: opt_config_schema.data
+            siteConfigs: site_config.data
           }
           this.setState(stateVar);
         }))
@@ -108,9 +102,6 @@ export default class EditCreditsCard extends React.Component {
     switch(this.state.step){
       case 1:
         return this.state.schemaJSON;
-        break;
-      case 2:
-        return this.state.optionalConfigSchemaJSON;
         break;
     }
   }
