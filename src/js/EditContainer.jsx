@@ -220,7 +220,7 @@ export default class EditCreditsCard extends React.Component {
                       mode={this.state.mode}
                       dataJSON={this.state.dataJSON}
                       domain={this.props.domain}
-                      optionalConfigJSON={this.state.optionalConfigJSON}
+                      siteConfigs={this.state.siteConfigs}
                     />
                   </div>
                 }
