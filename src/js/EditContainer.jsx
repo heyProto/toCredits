@@ -45,7 +45,6 @@ export default class EditCreditsCard extends React.Component {
           let stateVar = {
             dataJSON: {
               card_data: card.data,
-              configs: opt_config.data
             },
             schemaJSON: schema.data,
             uiSchemaJSON: uiSchema.data,
