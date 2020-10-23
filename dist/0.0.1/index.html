@@ -8,12 +8,12 @@
   </head>
   <body style='margin: 0px'>
     <div id="tolink-div"></div>
-    <script src="https://cdn.protograph.pykih.com/lib/protograph-core.min.js"></script>
-    <script src="https://cdn.protograph.pykih.com/lib/jquery-3.1.1.min.js"></script>
+    <script src="https://utils.pro.to/lib/protograph-core.min.js"></script>
+    <script src="https://utils.pro.to/lib/jquery-3.1.1.min.js"></script>
     <script src="card.min.js"></script>
     <script type="text/javascript">
     var x = new ProtoGraph.Card.toCreditPartners();
-    window.ref_link_sources_url = "https://cdn.protograph.pykih.com/Assets/ref_link_sources.json"
+    window.ref_link_sources_url = "https://utils.pro.to/Assets/ref_link_sources.json"
     function findGetParameter(parameterName) {
       var result = null,
         tmp = [],
@@ -31,7 +31,7 @@
 
     let view_cast_id = findGetParameter('view_cast_id'),
       domain_name = (findGetParameter('domain') || ""),
-      base_url = findGetParameter('base_url') || "https://cdn.protograph.pykih.com";
+      base_url = findGetParameter('base_url') || "https://utils.pro.to";
 
     var ReceiverConsumer = Oasis.Consumer.extend({
       requests: {

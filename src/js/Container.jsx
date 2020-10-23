@@ -276,14 +276,14 @@ export default class toCreditsCard extends React.Component {
       return(
         <div className="credits-card">
           <div id="prev-arrow" className="left-click-arrow proto-navigation-icons">
-            <img src="https://cdn.protograph.pykih.com/d583b2ea191031c6f0fc/img/arrow-left.png"/>
+            <img src="https://utils.pro.to/d583b2ea191031c6f0fc/img/arrow-left.png"/>
           </div>
           <div className="credits-logos">
             <div className="scroll-area">{section}</div>
           </div>
           {(data.description !== undefined && data.description !== '') ?  <div className="para-description">{data.description}</div> :''}
           <div id="next-arrow" className="right-click-arrow proto-navigation-icons">
-            <img src="https://cdn.protograph.pykih.com/d583b2ea191031c6f0fc/img/arrow-right.png"/>
+            <img src="https://utils.pro.to/d583b2ea191031c6f0fc/img/arrow-right.png"/>
           </div>
         </div>
       )
@@ -325,14 +325,14 @@ export default class toCreditsCard extends React.Component {
       return(
         <div className="credits-card col7-credits-card">
           <div id="prev-arrow" className="left-click-arrow proto-navigation-icons">
-            <img src="https://cdn.protograph.pykih.com/d583b2ea191031c6f0fc/img/arrow-left.png"/>
+            <img src="https://utils.pro.to/d583b2ea191031c6f0fc/img/arrow-left.png"/>
           </div>
           <div className="credits-logos">
             <div className="scroll-area">{section}</div>
           </div>
           {(data.description !== undefined && data.description !== '') ?  <div className="para-description">{data.description}</div> :''}
           <div id="next-arrow" className="right-click-arrow proto-navigation-icons">
-            <img src="https://cdn.protograph.pykih.com/d583b2ea191031c6f0fc/img/arrow-right.png"/>
+            <img src="https://utils.pro.to/d583b2ea191031c6f0fc/img/arrow-right.png"/>
           </div>
         </div>
       )
